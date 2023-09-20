@@ -4,8 +4,8 @@ import { AddCategory } from './components/AddCategory';
 export const GifProApp = () => {
   const [categories, setCategories] = useState(['One Punch Man', 'Naruto']);
 
-  const onAddCategory = () => {
-    setCategories(['Berserk', ...categories]);
+  const onAddCategory = (newCategory) => {
+    setCategories([newCategory, ...categories]);
   };
 
   return (
@@ -13,7 +13,7 @@ export const GifProApp = () => {
       {/* Title */}
       <h1>GifProApp</h1>
 
-      <AddCategory setCategories={setCategories} />
+      <AddCategory onAddCategory={(value) => onAddCategory(value)} />
 
       <button onClick={onAddCategory}>Add</button>
 
